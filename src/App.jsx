@@ -5,6 +5,7 @@ import Patient from "./pages/Patient";
 import Vitals from "./pages/Vitals";
 import Conditions from "./pages/Conditions";
 import Chatbot from "./pages/Chatbot";
+import { FaHome, FaUserMd, FaHeartbeat, FaClipboardList, FaRobot } from "react-icons/fa";
 
 export default function App() {
   const navClass = ({ isActive }) =>
@@ -16,21 +17,26 @@ export default function App() {
   return (
     <Layout>
       <div className="nav">
-        <NavLink to="/" className={navClass} end>
-          Home
-        </NavLink>
-        <NavLink to="/patient" className={navClass}>
-          Patient
-        </NavLink>
-        <NavLink to="/vitals" className={navClass}>
-          Vitals
-        </NavLink>
-        <NavLink to="/conditions" className={navClass}>
-          Conditions
-        </NavLink>
-        <NavLink to="/chatbot" className={navChatClass}>
-          AI Chatbot
-        </NavLink>
+      <NavLink to="/" className={navClass} end>
+  <FaHome /> Home
+</NavLink>
+
+<NavLink to="/patient" className={navClass}>
+  <FaUserMd /> Patient
+</NavLink>
+
+<NavLink to="/vitals" className={navClass}>
+  <FaHeartbeat /> Vitals
+</NavLink>
+
+<NavLink to="/conditions" className={navClass}>
+  <FaClipboardList /> Conditions
+</NavLink>
+
+<NavLink to="/chatbot" className={navChatClass}>
+  <FaRobot /> AI Chatbot
+</NavLink>
+
       </div>
 
       <Routes>

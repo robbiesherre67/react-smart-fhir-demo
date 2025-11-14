@@ -323,3 +323,48 @@ body {
   transform: translateY(-2px);
   border-color: #90b4e8;
 }
+/* Animated Hover Glow for Cards */
+.action-card,
+.metric-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.action-card::after,
+.metric-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0),
+    rgba(33, 150, 243, 0.18),
+    rgba(255, 255, 255, 0)
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.action-card:hover::after,
+.metric-card:hover::after {
+  opacity: 1;
+}
+/* Skeleton Loader */
+.skeleton {
+  background: linear-gradient(90deg, #e3e9f0 25%, #f4f7fa 37%, #e3e9f0 63%);
+  background-size: 400% 100%;
+  animation: shimmer 1.4s ease infinite;
+  border-radius: 8px;
+}
+
+@keyframes shimmer {
+  0% { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+.hero-illustration {
+  width: 180px;
+  display: block;
+  margin: 0 auto 14px;
+  opacity: 0.92;
+}
+

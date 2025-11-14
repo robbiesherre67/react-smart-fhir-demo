@@ -1,4 +1,5 @@
 import Card from "../components/Card";
+import GrowthChart from "../components/GrowthChart";
 
 const mockVitals = [
   {
@@ -23,15 +24,32 @@ const mockVitals = [
   },
 ];
 
+/* ⭐️⭐️⭐️ MOCK PERCENTILE DATA GOES *RIGHT HERE* ⭐️⭐️⭐️ */
+
+const heightPercentile = [
+  { age: "5", value: 105 },
+  { age: "6", value: 111 },
+  { age: "7", value: 118 },
+];
+
+const weightPercentile = [
+  { age: "5", value: 18 },
+  { age: "6", value: 20.5 },
+  { age: "7", value: 24.1 },
+];
+
+/* ---------------------------------------------------------------------- */
+
 export default function Vitals() {
   return (
     <Card>
       <h2>Recent Vitals</h2>
       <p style={{ marginTop: 4, color: "#64748b", fontSize: 13 }}>
-        Example vitals taken from mock FHIR Observation resources, rendered in a
-        clinical summary table.
+        Example vitals taken from mock FHIR Observation resources, rendered
+        in a clinical summary table.
       </p>
 
+      {/* VITALS TABLE */}
       <div className="vitals-table-wrapper">
         <table className="vitals-table">
           <thead>
@@ -62,6 +80,12 @@ export default function Vitals() {
           </tbody>
         </table>
       </div>
+
+      {/* GROWTH CHARTS -------------------------- */}
+      <h3 style={{ marginTop: 28 }}>Growth Charts</h3>
+
+      <GrowthChart label="Height (cm)" dataPoints={heightPercentile} />
+      <GrowthChart label="Weight (kg)" dataPoints={weightPercentile} />
     </Card>
   );
 }
