@@ -1,21 +1,45 @@
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, NavLink } from "react-router-dom";
+import Layout from "./components/Layout";
+import Home from "./pages/Home";
+import Patient from "./pages/Patient";
+import Vitals from "./pages/Vitals";
+import Conditions from "./pages/Conditions";
+import Chatbot from "./pages/Chatbot";
 
 export default function App() {
-  return (
-    <div>
-      <h1>Pediatric SMART on FHIR Dashboard</h1>
+  const navClass = ({ isActive }) =>
+    "nav-btn" + (isActive ? " active" : "");
 
-      <nav>
-        <Link to="/">Home</Link> |{" "}
-        <Link to="/patient">Patient</Link> |{" "}
-        <Link to="/vitals">Vitals</Link>
-      </nav>
+  const navChatClass = ({ isActive }) =>
+    "nav-btn primary" + (isActive ? " active" : "");
+
+  return (
+    <Layout>
+      <div className="nav">
+        <NavLink to="/" className={navClass} end>
+          Home
+        </NavLink>
+        <NavLink to="/patient" className={navClass}>
+          Patient
+        </NavLink>
+        <NavLink to="/vitals" className={navClass}>
+          Vitals
+        </NavLink>
+        <NavLink to="/conditions" className={navClass}>
+          Conditions
+        </NavLink>
+        <NavLink to="/chatbot" className={navChatClass}>
+          AI Chatbot
+        </NavLink>
+      </div>
 
       <Routes>
-        <Route path="/" element={<div>Home</div>} />
-        <Route path="/patient" element={<div>Patient Page</div>} />
-        <Route path="/vitals" element={<div>Vitals Page</div>} />
+        <Route path="/" element={<Home />} />
+        <Route path="/patient" element={<Patient />} />
+        <Route path="/vitals" element={<Vitals />} />
+        <Route path="/conditions" element={<Conditions />} />
+        <Route path="/chatbot" element={<Chatbot />} />
       </Routes>
-    </div>
+    </Layout>
   );
 }
