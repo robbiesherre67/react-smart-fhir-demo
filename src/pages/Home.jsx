@@ -1,6 +1,9 @@
 import Card from "../components/Card";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
+  const navigate = useNavigate();
+
   return (
     <>
       <Card>
@@ -33,24 +36,40 @@ export default function Home() {
       <Card>
         <h3>Quick Actions</h3>
         <div className="home-actions">
-          <div className="action-card">
+
+          {/* Patient Summary */}
+          <div
+            className="action-card action-clickable"
+            onClick={() => navigate("/patient")}
+          >
             <div className="action-title">Review Patient Summary</div>
             <div className="action-desc">
               Demographics, PCP, and key clinical snapshots in one view.
             </div>
           </div>
-          <div className="action-card">
+
+          {/* Vitals */}
+          <div
+            className="action-card action-clickable"
+            onClick={() => navigate("/vitals")}
+          >
             <div className="action-title">Check Vitals & Trends</div>
             <div className="action-desc">
               Recent weight, height, BMI, and temperature changes.
             </div>
           </div>
-          <div className="action-card">
+
+          {/* Chatbot */}
+          <div
+            className="action-card action-clickable"
+            onClick={() => navigate("/chatbot")}
+          >
             <div className="action-title">Ask the AI Assistant</div>
             <div className="action-desc">
               Get parent-friendly explanations and care-plan summaries.
             </div>
           </div>
+
         </div>
       </Card>
     </>

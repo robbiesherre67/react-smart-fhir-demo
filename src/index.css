@@ -313,3 +313,13 @@ body {
   font-family: inherit;
   font-size: 14px;
 }
+.action-clickable {
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.action-clickable:hover {
+  background: #e8f0fb;
+  transform: translateY(-2px);
+  border-color: #90b4e8;
+}
